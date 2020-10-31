@@ -42,19 +42,6 @@ namespace core_beefNoodles
                 app.UseHsts();
             }
 
-            app.Map("/test", build =>
-             {
-                 build.Run(async context =>
-                 {
-                     await context.Response.WriteAsync("Hello from test");
-                 });
-             });
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello world");
-            });
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -67,6 +54,11 @@ namespace core_beefNoodles
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello world");
             });
         }
     }

@@ -9,6 +9,7 @@ using core_beefNoodles.Models;
 
 namespace core_beefNoodles.Controllers
 {
+    //[Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,9 +19,14 @@ namespace core_beefNoodles.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            return "Hello From Home";
+        }
+
+        public string About()
+        {
+            return "Hello from About";
         }
 
         public IActionResult Privacy()
