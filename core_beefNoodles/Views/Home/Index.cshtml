@@ -1,4 +1,5 @@
-﻿@model IEnumerable<core_beefNoodles.Models.Noodle>
+﻿@*@model IEnumerable<core_beefNoodles.Models.Noodle>*@
+@model core_beefNoodles.ViewModels.HomeViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -9,11 +10,18 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>*@
 
-@foreach (var noodle in Model)
+@foreach (var noodle in Model.noodles)
 {
     <div>
         <h2>@noodle.Name</h2>
         <h3>$ @noodle.Price</h3>
         <p>@noodle.ShortDescription</p>
     </div>
+}
+<h2>评论</h2>
+@foreach (var feedback in Model.feedbacks)
+{
+    <h2>@feedback.Name</h2>
+    <h3>@feedback.CreateDataUTC</h3>
+    <p>@feedback.Message</p>
 }

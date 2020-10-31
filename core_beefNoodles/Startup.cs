@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace core_beefNoodles
 {
@@ -25,9 +26,11 @@ namespace core_beefNoodles
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer("connectionstring"));
             services.AddControllersWithViews();
             services.AddMvc();
             services.AddTransient<INoodleRepository, MockNoodleRepository>();
+            services.AddTransient<IFeedbackRepositroy, MockFeedbackRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
