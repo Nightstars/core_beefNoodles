@@ -13,15 +13,18 @@ namespace core_beefNoodles.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private INoodleRepository _noodleRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,INoodleRepository noodleRepository)
         {
             _logger = logger;
+            _noodleRepository = noodleRepository;
         }
 
-        public string Index()
+        public IActionResult Index()
         {
-            return "Hello From Home";
+            var noodles=_noodleRepository.GetAllNoodles();
+            return View(noodles);
         }
 
         public string About()
