@@ -26,10 +26,10 @@ namespace core_beefNoodles
                     var context = services.GetRequiredService<AppDbContext>();
                     DbInitialzer.seed(context);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
 
-                    throw;
+                    Console.WriteLine(e.Message);
                 }
             }
 

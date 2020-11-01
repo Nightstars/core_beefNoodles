@@ -26,6 +26,7 @@ namespace core_beefNoodles.Controllers
         {
             if (ModelState.IsValid)
             {
+                feedback.CreateDataUTC = DateTime.Now;
                 _feedbackRepositroy.AddFeedback(feedback);
                 return RedirectToAction("FeedbackComplete");
             }

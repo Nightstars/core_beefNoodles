@@ -27,6 +27,19 @@ namespace core_beefNoodles.Models
                     new Noodle { Name = "一窝丝", Price = 15, ShortDescription = "这是啥", LongDexcription = "我也没吃过", ImageUrl = "" }
                 );
             appDbContext.SaveChanges();
+
+            if (appDbContext.Feedbacks.Any())
+            {
+                return;
+            }
+            appDbContext.AddRange
+               (
+                    new Feedback { Name = "阿莱克斯", Email = "noname@hotmail.com", CreateDataUTC = Convert.ToDateTime("2020/05/16"), Message = "很好吃" },
+                    new Feedback { Name = "莱克斯", Email = "noname@hotmail.com", CreateDataUTC = Convert.ToDateTime("2020/08/16"), Message = "很好吃" },
+                    new Feedback { Name = "克斯", Email = "noname@hotmail.com", CreateDataUTC = Convert.ToDateTime("2020/09/16"), Message = "很好吃" },
+                    new Feedback { Name = "斯", Email = "noname@hotmail.com", CreateDataUTC = Convert.ToDateTime("2020/10/16"), Message = "很好吃" }
+                );
+            appDbContext.SaveChanges();
         }
     }
 }
