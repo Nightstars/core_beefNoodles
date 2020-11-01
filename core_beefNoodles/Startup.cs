@@ -27,10 +27,11 @@ namespace core_beefNoodles
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<AppDbContext>(options => options.UseSqlServer("connectionstring"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddMvc();
-            services.AddTransient<INoodleRepository, MockNoodleRepository>();
-            services.AddTransient<IFeedbackRepositroy, MockFeedbackRepository>();
+            services.AddTransient<INoodleRepository, NoodleRepository>();
+            services.AddTransient<IFeedbackRepositroy, FeedbackRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

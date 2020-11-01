@@ -13,5 +13,6 @@ namespace core_beefNoodles.Models
         public string LongDexcription { get; set; }
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
+        public bool IsInstock { get; set; }
     }
 }
