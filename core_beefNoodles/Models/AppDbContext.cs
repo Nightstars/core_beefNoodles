@@ -2,11 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace core_beefNoodles.Models
 {
-    public class AppDbContext:DbContext
+    //public class AppDbContext:DbContext
+    //{
+    //    public AppDbContext(DbContextOptions<AppDbContext> options)
+    //        : base(options)
+    //    {
+
+    //    }
+
+    //    public DbSet<Noodle> Noodles { get; set; }
+    //    public DbSet<Feedback> Feedbacks { get; set; }
+    //}
+
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)

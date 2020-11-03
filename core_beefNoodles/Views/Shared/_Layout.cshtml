@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="~/content/site.css" />
 </head>
 <body>
+    <partial name="_LoginPartial" />
     <div class="container body-content">
         <div class="row">
             @RenderBody()
         </div>
     </div>
+
+    @RenderSection("Scripts", required: false);
+
 </body>
 </html>
